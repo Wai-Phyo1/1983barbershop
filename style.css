@@ -1,0 +1,1384 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Nova+Mono&family=Poppins:wght@300&family=Roboto:wght@100&family=Teko:wght@300&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Teko", sans-serif;
+    font-size: 1.1rem;
+    list-style-type: none;
+    letter-spacing: 3px;
+    color: var(--main-color);
+}
+
+body {
+    background-color: var(--bg-color);
+    width: 100%;
+}
+
+
+/* global declaration  */
+
+:root {
+    --main-color: #d5a353;
+    --text-color: #eceff1;
+    --bg-color: #212121;
+    --contact-font: 0.9rem;
+    --contact-border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* navigation bar  */
+
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 60px;
+    box-shadow: 0 0px 5px 1px rgba(102, 99, 99, 0.5);
+    font-weight: 800;
+    position: sticky;
+    top: 0;
+    background: var(--bg-color) url(./image/header.svg);
+    z-index: 5;
+    opacity: 0.9;
+    filter: brightness(1.3);
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+
+/* title animation start  */
+
+.logo-container span {
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    color: var(--bg-color);
+    user-select: none;
+    position: relative;
+    -webkit-text-stroke: 0.05vw rgba(102, 99, 99, 0.5);
+}
+
+.logo-container span::before {
+    content: attr(title-data);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    color: var(--main-color);
+    -webkit-text-stroke: 0vw var(--main-color);
+    border-right: 2px solid var(--main-color);
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+    0%,
+    10%,
+    100% {
+        width: 0;
+    }
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+
+/* title animation end  */
+
+.barber-logo {
+    width: 3rem;
+    height: 3rem;
+    border: 3px solid var(--main-color);
+    border-radius: 50%;
+}
+
+
+/* hide menu start */
+
+.nav-bar .menu-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.nav-bar .menu-icon a .fa-bars {
+    font-size: 1.5rem;
+}
+
+
+/* hide menu end  */
+
+.menu-container {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--main-color);
+}
+
+.menu-container li a {
+    color: var(--main-color);
+    position: relative;
+}
+
+.menu-container li a::after {
+    content: " ";
+    position: absolute;
+    width: 0%;
+    left: 0;
+    bottom: -2px;
+    background-color: var(--main-color);
+    height: 2px;
+    border-radius: 10%;
+    transition: 0.5s;
+}
+
+.menu-container .home::after,
+.menu-container li a:hover::after {
+    width: 100%;
+}
+
+
+/* cover image  */
+
+.cover-photo-container {
+    width: 100%;
+    height: 800px;
+    position: relative;
+}
+
+.cover-photo {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.4;
+    filter: brightness(1.1) grayscale(65%);
+    z-index: -1;
+}
+
+.cover-text-container {
+    position: absolute;
+    top: 6%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    filter: brightness(1.2);
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.cover-text-container a {
+    font-size: 1.5rem;
+}
+
+.cover-text-container h2 {
+    font-size: 4rem;
+    letter-spacing: 10px;
+    user-select: none;
+}
+
+.cover-text-container span {
+    font-size: 1.5rem;
+}
+
+.cover-text-container p {
+    width: 25%;
+    margin-top: 48px;
+    text-align: center;
+    color: var(--text-color);
+    text-transform: capitalize;
+}
+
+.cover-text-footer {
+    position: absolute;
+    bottom: 0%;
+}
+
+.btn {
+    position: relative;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border: 2px solid var(--main-color);
+    background: none;
+    color: var(--main-color);
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--main-color);
+    color: var(--text-color);
+}
+
+
+/* cover text footer  */
+
+.cover-text-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 30px;
+    width: 100%;
+    border-top: 1px solid var(--contact-border-color);
+    border-bottom: 1px solid var(--contact-border-color);
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    align-items: center;
+    filter: brightness(1.2);
+    z-index: 2;
+}
+
+.address {
+    max-width: auto;
+    max-height: auto;
+}
+
+.address h4,
+.address p,
+.contact h4,
+.contact span,
+.work-hour h4,
+.work-hour p {
+    font-size: var(--contact-font);
+}
+
+.address p {
+    color: var(--text-color);
+}
+
+.contact {
+    width: auto;
+    height: auto;
+    border-right: 1px solid var(--contact-border-color);
+    border-left: 1px solid var(--contact-border-color);
+    padding-right: 10%;
+    padding-left: 10%;
+    transition: 0.5s;
+}
+
+.contact h3,
+.address p::first-line {
+    color: var(--text-color);
+    font-size: 1.7rem;
+    transition: 0.5s;
+}
+
+.contact h3 {
+    cursor: pointer;
+}
+
+.contact h3:hover {
+    color: var(--main-color);
+}
+
+.work-hour p {
+    color: var(--text-color);
+}
+
+
+/* about  */
+
+.about-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0px 5px 1px rgba(102, 99, 99, 0.5);
+}
+
+.about-photo-container {
+    max-width: 50%;
+    max-height: 100%;
+}
+
+.about-container img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(80%);
+}
+
+.about-text-container {
+    max-width: 100%;
+    padding: 40px;
+}
+
+.about-text-container h2 {
+    font-size: 3rem;
+    line-height: 25px;
+}
+
+.about-text-container h2 small {
+    font-size: 1.7rem;
+    letter-spacing: 5px;
+}
+
+.about-text-container>p {
+    margin-top: 50px;
+}
+
+.about-text-container .lorem {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+
+/* service  */
+
+.service-container {
+    max-width: 95%;
+    margin: 5% 5% 0 5%;
+    border-bottom: 1px solid var(--contact-border-color);
+}
+
+.service-container h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.divider {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divider div {
+    width: 1%;
+    height: 1%;
+    border: 2px solid var(--main-color);
+    background-color: var(--main-color);
+    margin: 5px;
+}
+
+.service-container>p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.hair-cut-container {
+    width: 100px;
+    height: 60px;
+}
+
+.hair-cut-container img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* service card  */
+
+.service-card {
+    max-width: auto;
+    margin: 3% auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, auto));
+    gap: 1rem;
+}
+
+.hair-cut-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid var(--main-color);
+    transition: 0.5s;
+    z-index: 3;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.hair-cut-container:hover .overlay {
+    opacity: 0.3;
+}
+
+.hair-cut-container:hover .icon .bx {
+    color: var(--text-color);
+}
+
+.overlay .hover-img {
+    position: absolute;
+    top: 48.2%;
+    left: 48.2%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    transition: 0.5s ease;
+}
+
+.overlay .hover-img img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hair-cut-container .icon {
+    display: flex;
+    justify-content: center;
+}
+
+.hair-cut-container .icon .bx {
+    font-size: 2.5rem;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+.hair-cut-container h2 {
+    margin: 20px 0;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+.hair-cut-container p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    width: auto;
+    height: 35%;
+    z-index: 2;
+    transition: 0.5s;
+}
+
+.hair-cut-container div {
+    margin: 5px;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.service-container .btn-learn {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+/* staff  */
+
+.staff-container .staff-image {
+    max-width: 100%;
+    max-height: 100%;
+    text-align: center;
+}
+
+.staff-container .staff-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(1) grayscale(80%);
+    transition: 0.5s;
+    box-shadow: 0 0px 3px 0px rgba(208, 196, 196, 0.5);
+}
+
+.staff-container .staff-image img:hover {
+    filter: brightness(1.1) grayscale(80%);
+    transform: translateY(-5px);
+}
+
+.staff-container .name-level {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.staff-container .name-level small {
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+.staff-container .name-level span {
+    transition: 0.5s;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.staff-container .name-level span:hover {
+    color: var(--text-color);
+}
+
+.staff-container .link-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 5% 0;
+}
+
+.staff-container .link {
+    width: 20%;
+    padding: 5px;
+    background-color: var(--main-color);
+    text-align: center;
+}
+
+.staff-container .link i {
+    color: var(--text-color);
+    font-size: 0.7rem;
+    font-weight: 700;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.staff-container .link .fa-brands {
+    border-right: 1px solid var(--text-color);
+    padding-right: 4px;
+}
+
+.staff-container .link i:hover {
+    color: var(--bg-color);
+}
+
+
+/* hair styles  */
+
+.hair-style-container {
+    border-bottom: none;
+}
+
+.hair-style-container .service-card .staff-container .hair-style-img img {
+    height: 270px;
+    filter: brightness(1) grayscale(60%);
+}
+
+.hair-style-container .hair-style-card .staff-container .name-level span {
+    font-size: 1.1rem;
+}
+
+.hair-style-container .hair-style-card .staff-container .name-level {
+    margin-bottom: 5%;
+}
+
+
+/* price list  */
+
+.price-list-container {
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid var(--contact-border-color);
+    border-bottom: 1px solid var(--contact-border-color);
+    display: flex;
+}
+
+.price-list-container .price-list-photo {
+    width: 50%;
+}
+
+.price-list-container .price-list-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(70%);
+}
+
+.price-list-container .price-list-text {
+    width: 50%;
+    padding: 40px 40px 0px 40px;
+}
+
+.price-list-container .price-list-text h2 {
+    font-size: 3rem;
+}
+
+.price-list-container .price-list-text .divider-price {
+    justify-content: start;
+}
+
+.price-list-container .price-list-text .divider-price div {
+    width: 0.7rem;
+}
+
+.price-list-container .price-list-text p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin: 30px auto;
+}
+
+.table {
+    width: 80%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+.table th,
+.table td {
+    padding: 10px 0;
+}
+
+.table tbody tr {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--contact-border-color);
+    border-bottom: 1px solid var(--contact-border-color);
+    transition: 0.5s;
+}
+
+.table tbody tr td:first-child {
+    color: var(--text-color);
+    padding-right: 10px;
+}
+
+.table tbody tr:hover {
+    background-color: var(--contact-border-color);
+}
+
+.price-list-text .btn-price {
+    margin: 50px auto;
+}
+
+
+/* apointment  */
+
+.appointment-container {
+    width: 100%;
+    height: 700px;
+    position: relative;
+    transition: .5s;
+    /* margin-bottom: -1px; */
+}
+
+.appointment-container .appointment-photo {
+    width: 100%;
+    height: 100%;
+}
+
+.appointment-container .appointment-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(1.1) grayscale(80%);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.appointment-container h1 {
+    position: absolute;
+    top: 4.5rem;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.appointment-container .header-container {
+    opacity: 1;
+    z-index: 1;
+}
+
+.appointment-container .header-container .divider {
+    position: absolute;
+    top: 9rem;
+}
+
+.appointment-container .header-container .divider div {
+    width: 0.7rem;
+}
+
+.appointment-container .header-container {
+    display: flex;
+    justify-content: center;
+}
+
+.appointment-container .appointment-form-container {
+    width: 100%;
+    position: absolute;
+    top: 14rem;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    filter: brightness(1.1);
+}
+
+.appointment-container .appointment-form-container .appointment-form {
+    width: 80%;
+    text-align: center;
+}
+
+.appointment-container .appointment-form-container .appointment-form .name-email input,
+.appointment-container .appointment-form-container .appointment-form .number-date input,
+.appointment-container .appointment-form-container .appointment-form textarea {
+    width: 45%;
+    margin: 10px;
+    padding: 15px;
+    background-color: var(--bg-color);
+    border: none;
+    outline: none;
+}
+
+
+/* hide calendar icon  */
+
+
+/* .apointment-container .appointment-form-container .appointment-form .number-date input[type="date"]::-webkit-calendar-picker-indicator {
+            display: none;
+            -webkit-appearance: none;
+        }
+*/
+
+.appointment-container .appointment-form-container .appointment-form .message textarea {
+    width: 92.5%;
+    height: 8rem;
+}
+
+.apointment-container .appointment-form-container .appointment-form .number-date input[type="date"]::-webkit-calendar-picker-indicator::placeholder {
+    font-size: 0.8rem;
+}
+
+.appointment-container .appointment-form-container .appointment-form input::placeholder,
+.appointment-container .appointment-form-container .appointment-form input[type="date"]::placeholder,
+.appointment-container .appointment-form-container .appointment-form textarea::placeholder {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--main-color);
+}
+
+.appointment-container .appointment-form-container .appointment-form .check-box>input[type="checkbox"] {
+    border: none;
+    outline: none;
+    margin: 10px 0;
+}
+
+.appointment-container .appointment-form-container .appointment-form .check-box span {
+    font-size: 0.98rem;
+}
+
+.appointment-container .appointment-form-container .appointment-form>input[type="button"] {
+    padding: 10px 50px;
+    margin-top: 20px;
+}
+
+
+/* footer  */
+
+.footer-container {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color) url(./image/header.svg);
+    /* background-color: var(--bg-color); */
+}
+
+.footer-container a {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.footer-container small {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+
+/* custom scroll  */
+
+
+/* width */
+
+html::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+    transition: 0.5s;
+}
+
+
+/* track  */
+
+html::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.3);
+    background: var(--bg-color);
+}
+
+
+/* Handle */
+
+html::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+}
+
+
+/* layout responsive  */
+
+@media (max-width: 1080px) {
+    .nav-bar .menu-container {
+        display: none;
+    }
+    .nav-bar .menu-icon {
+        display: flex;
+    }
+    .cover-photo-container .cover-text-container h2 {
+        font-size: 3.5rem;
+    }
+    .appointment-container h1 {
+        top: 3rem;
+    }
+    .appointment-container .header-container .divider {
+        top: 7.5rem;
+    }
+    .appointment-container .appointment-form-container {
+        top: 11rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .cover-photo-container .cover-text-container h2 {
+        font-size: 2.7rem;
+        letter-spacing: 7px;
+    }
+    .cover-text-container a {
+        font-size: 1.2rem;
+    }
+    .cover-text-container span {
+        font-size: 1.2rem;
+    }
+    .cover-text-container p {
+        font-size: 0.9rem;
+    }
+    .nav-bar .logo-container .barber-logo {
+        width: 2.7rem;
+        height: 2.7rem;
+    }
+    .nav-bar .logo-container span {
+        font-size: 1.1rem;
+        letter-spacing: 3.5px;
+    }
+    .about-text-container h2 {
+        font-size: 2.5rem;
+        line-height: 20px;
+    }
+    .about-text-container h2 small {
+        font-size: 1.4rem;
+    }
+    .contact h3,
+    .address p::first-line {
+        font-size: 1.4rem;
+    }
+    .appointment-container h1 {
+        font-size: 2.5rem;
+    }
+    .appointment-container .appointment-form-container .appointment-form input[type="date"] {
+        font-size: 1rem;
+    }
+    .appointment-container .appointment-form-container .appointment-form input::placeholder,
+    .appointment-container .appointment-form-container .appointment-form input[type="date"]::placeholder,
+    .appointment-container .appointment-form-container .appointment-form textarea::placeholder {
+        font-size: 1rem;
+    }
+    .appointment-container .appointment-form-container .appointment-form .check-box span {
+        font-size: 0.95rem;
+    }
+    .service-container h1 {
+        font-size: 2.5rem;
+    }
+    .service-container>p {
+        font-size: 1.1rem;
+    }
+    .staff-container .name-level span {
+        font-size: 1.1rem;
+    }
+    .staff-container .link i {
+        font-size: 0.65rem;
+        font-weight: 600;
+    }
+    .hair-cut-container p {
+        font-size: 0.8rem;
+    }
+    .price-list-container .price-list-text h2 {
+        font-size: 2.5rem;
+    }
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    .nav-bar .menu-icon a .fa-bars {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 846px) {
+    .staff-container .link {
+        width: 25%;
+        padding: 2px 4px;
+    }
+    .staff-container .link i {
+        font-size: 0.6rem;
+    }
+    .staff-container .link .fa-brands {
+        padding-right: 2px;
+    }
+}
+
+@media (max-width: 750px) {
+    .cover-photo-container .cover-text-container h2 {
+        font-size: 2.2rem;
+        letter-spacing: 6px;
+    }
+    .cover-text-container a {
+        font-size: 1.1rem;
+    }
+    .cover-text-container span {
+        font-size: 1.1rem;
+    }
+    .contact h3,
+    .address p::first-line {
+        font-size: 1.2rem;
+    }
+    .about-text-container h2 {
+        font-size: 2.2rem;
+        line-height: 15px;
+    }
+    .about-text-container h2 small {
+        font-size: 1.2rem;
+    }
+    .about-text-container>p {
+        font-size: 1rem;
+        margin-top: 35px;
+    }
+    .about-text-container .lorem {
+        font-size: 0.8rem;
+    }
+    .btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    .service-container>p {
+        font-size: 1rem;
+    }
+    .service-container h1 {
+        font-size: 2.2rem;
+    }
+    .hair-cut-container .icon .bx {
+        font-size: 2.2rem;
+    }
+    .hair-cut-container h2 {
+        font-size: 1rem;
+        letter-spacing: 4px;
+    }
+    .hair-cut-container .read-more a {
+        font-size: 1rem;
+        letter-spacing: 4px;
+    }
+    .price-list-container .price-list-text h2 {
+        font-size: 2.2rem;
+    }
+    .divider {
+        margin: 15px auto;
+    }
+    .appointment-container h1 {
+        font-size: 2.2rem;
+    }
+    .appointment-container .appointment-form-container .appointment-form .message textarea {
+        width: 92%;
+    }
+    .appointment-container .appointment-form-container .appointment-form .name-email input,
+    .appointment-container .appointment-form-container .appointment-form .number-date input,
+    .appointment-container .appointment-form-container .appointment-form textarea {
+        width: 45%;
+        margin: 5px;
+    }
+    .appointment-container .appointment-form-container .appointment-form .check-box span {
+        font-size: 0.9rem;
+    }
+    .price-list-container .price-list-text .divider-price div {
+        width: 0.4rem;
+    }
+    .appointment-container .header-container .divider div {
+        width: 0.4rem;
+    }
+    .footer-container a {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+    .footer-container small {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+    .table tbody tr td {
+        font-size: 0.9rem;
+    }
+    .nav-bar {
+        padding: 5px 60px;
+    }
+    .nav-bar .logo-container .barber-logo {
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 2px solid var(--main-color);
+    }
+    .nav-bar .logo-container span {
+        font-size: 1rem;
+        letter-spacing: 3px;
+    }
+    .nav-bar .menu-icon a .fa-bars {
+        font-size: 1.25rem;
+    }
+    .staff-container .name-level span {
+        font-size: 1rem;
+    }
+    .hair-style-container .hair-style-card .staff-container .name-level span {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 660px) {
+    .appointment-container {
+        height: 600px;
+    }
+    .appointment-container .appointment-form-container .appointment-form .message textarea {
+        width: 93%;
+        margin-bottom: 0;
+    }
+    .appointment-container .appointment-form-container .appointment-form .name-email input,
+    .appointment-container .appointment-form-container .appointment-form .number-date input,
+    .appointment-container .appointment-form-container .appointment-form textarea {
+        width: 45%;
+        font-size: 0.95rem;
+    }
+    .appointment-container .appointment-form-container .appointment-form input[type="date"] {
+        font-size: 0.9rem;
+    }
+    .appointment-container .appointment-form-container .appointment-form input::placeholder,
+    .appointment-container .appointment-form-container .appointment-form input[type="date"]::placeholder,
+    .appointment-container .appointment-form-container .appointment-form textarea::placeholder {
+        font-size: 0.9rem;
+    }
+    .appointment-container .appointment-form-container .appointment-form .check-box span {
+        font-size: 0.8rem;
+    }
+    .appointment-container .appointment-form-container .appointment-form>input[type="button"] {
+        padding: 8px 35px;
+    }
+    .btn {
+        font-size: 0.85rem;
+    }
+    .contact h3,
+    .address p::first-line {
+        font-size: 1rem;
+    }
+    .address h4,
+    .address p,
+    .contact h4,
+    .contact span,
+    .work-hour h4,
+    .work-hour p {
+        font-size: 0.7rem;
+    }
+    .staff-container .name-level span {
+        font-size: 0.9rem;
+    }
+    .hair-style-container .hair-style-card .staff-container .name-level span {
+        font-size: 0.9rem;
+    }
+    .cover-text-footer {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 595px) {
+    .contact h3,
+    .address p::first-line {
+        font-size: 0.9rem;
+    }
+    .address h4,
+    .address p,
+    .contact h4,
+    .contact span,
+    .work-hour h4,
+    .work-hour p {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 570px) {
+    .cover-text-footer {
+        padding: 10px 15px;
+    }
+    .contact h3,
+    .address p::first-line {
+        font-size: 0.8rem;
+    }
+    .address h4,
+    .address p,
+    .contact h4,
+    .contact span,
+    .work-hour h4,
+    .work-hour p {
+        font-size: 0.55rem;
+    }
+    .btn {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+    .cover-photo-container .cover-text-container h2 {
+        font-size: 2rem;
+        letter-spacing: 6px;
+    }
+    .cover-text-container a {
+        font-size: 1rem;
+    }
+    .cover-text-container span {
+        font-size: 1rem;
+    }
+    .cover-text-container p {
+        font-size: 0.85rem;
+    }
+    .about-text-container h2 {
+        font-size: 2rem;
+        line-height: 13px;
+    }
+    .about-text-container h2 small {
+        font-size: 1rem;
+    }
+    .about-text-container>p {
+        font-size: 0.9rem;
+        margin-top: 30px;
+    }
+    .about-text-container .lorem {
+        font-size: 0.7rem;
+    }
+    .service-container h1 {
+        font-size: 2rem;
+    }
+    .price-list-container .price-list-text h2 {
+        font-size: 2rem;
+    }
+    .appointment-container h1 {
+        font-size: 2rem;
+    }
+    .appointment-container .header-container .divider {
+        top: 6.5rem;
+    }
+    .appointment-container .appointment-form-container .appointment-form .message textarea {
+        width: 94%;
+    }
+    .appointment-container .appointment-form-container .appointment-form .name-email input,
+    .appointment-container .appointment-form-container .appointment-form .number-date input,
+    .appointment-container .appointment-form-container .appointment-form textarea {
+        width: 45%;
+        margin: 3.5px;
+        padding: 12px 15px;
+    }
+    .appointment-container .appointment-form-container .appointment-form .check-box span {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+    }
+    .appointment-container .appointment-form-container .appointment-form input[type="date"] {
+        font-size: 0.8rem;
+    }
+    .appointment-container .appointment-form-container .appointment-form input::placeholder,
+    .appointment-container .appointment-form-container .appointment-form input[type="date"]::placeholder,
+    .appointment-container .appointment-form-container .appointment-form textarea::placeholder {
+        font-size: 0.8rem;
+    }
+    .footer-container a {
+        font-size: 0.8rem;
+        letter-spacing: 1.5px;
+    }
+    .footer-container small {
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+    }
+    html::-webkit-scrollbar {
+        width: 0.3rem;
+        height: 0.3rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .nav-bar {
+        padding: 3.5px 60px;
+    }
+    .nav-bar .logo-container .barber-logo {
+        width: 2.3rem;
+        height: 2.3rem;
+    }
+    .nav-bar .logo-container span {
+        font-size: 0.9rem;
+        letter-spacing: 2.8px;
+    }
+    .nav-bar .menu-icon a .fa-bars {
+        font-size: 1.3rem;
+    }
+    .cover-text-footer {
+        padding: 10px 15px;
+    }
+    .contact h3,
+    .address p::first-line {
+        font-size: 0.7rem;
+    }
+    .address h4,
+    .address p,
+    .contact h4,
+    .contact span,
+    .work-hour h4,
+    .work-hour p {
+        font-size: 0.5rem;
+    }
+    .btn {
+        font-size: 0.75rem;
+        padding: 6px 8px;
+    }
+    .cover-text-container {
+        top: 13%;
+    }
+    .cover-photo-container .cover-text-container h2 {
+        font-size: 1.9rem;
+        letter-spacing: 6px;
+    }
+    .cover-text-container a {
+        font-size: 0.9rem;
+    }
+    .cover-text-container span {
+        font-size: 0.9rem;
+    }
+    .cover-text-container p {
+        font-size: 0.8rem;
+    }
+    .about-text-container h2 {
+        font-size: 1.9rem;
+        line-height: 12.5px;
+    }
+    .about-text-container h2 small {
+        font-size: 0.9rem;
+    }
+    .about-text-container>p {
+        font-size: 0.8rem;
+        margin-top: 30px;
+    }
+    .about-text-container .lorem {
+        font-size: 0.65rem;
+    }
+    .about-text-container {
+        padding: 40px 20px;
+    }
+    .service-container h1 {
+        font-size: 1.9rem;
+    }
+    .price-list-container .price-list-text {
+        padding: 40px 20px 0px 20px;
+    }
+    .table tbody tr td:first-child {
+        padding-right: 25px;
+    }
+    .price-list-container .price-list-text h2 {
+        font-size: 1.9rem;
+    }
+    .price-list-container .price-list-text .divider-price div {
+        width: 0.25rem;
+    }
+    .appointment-container h1 {
+        font-size: 1.9rem;
+    }
+    .appointment-container .header-container .divider div {
+        width: 0.25rem;
+    }
+}
+
+@media (max-width: 470px) {
+    .cover-text-footer {
+        padding: 15px 5px;
+    }
+    .contact h3,
+    .address p::first-line {
+        font-size: 0.6rem;
+    }
+    .address h4,
+    .address p,
+    .contact h4,
+    .contact span,
+    .work-hour h4,
+    .work-hour p {
+        font-size: 0.4rem;
+    }
+}
+
+@media (max-width: 412px) {
+    .contact h3,
+    .address p::first-line {
+        font-size: 0.5rem;
+    }
+    .address h4,
+    .address p,
+    .contact h4,
+    .contact span,
+    .work-hour h4,
+    .work-hour p {
+        font-size: 0.3rem;
+    }
+    .footer-container a {
+        font-size: 0.75rem;
+        letter-spacing: 1.2px;
+    }
+    .footer-container small {
+        font-size: 0.6rem;
+        letter-spacing: 0.5px;
+    }
+    .appointment-container .appointment-form-container .appointment-form input[type="date"] {
+        font-size: 0.7rem;
+    }
+    .appointment-container .appointment-form-container .appointment-form input::placeholder,
+    .appointment-container .appointment-form-container .appointment-form input[type="date"]::placeholder,
+    .appointment-container .appointment-form-container .appointment-form textarea::placeholder {
+        font-size: 0.7rem;
+    }
+    .about-text-container {
+        padding: 40px 18px;
+    }
+}
+
+@media (max-width: 375px) {
+    .nav-bar {
+        padding: 3px 60px;
+    }
+    .nav-bar .logo-container .barber-logo {
+        width: 2.1rem;
+        height: 2.1rem;
+    }
+    .nav-bar .logo-container span {
+        font-size: 0.85rem;
+        letter-spacing: 2.7px;
+    }
+    .nav-bar .menu-icon a .fa-bars {
+        font-size: 1.25rem;
+    }
+}
